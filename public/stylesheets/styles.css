@@ -2,25 +2,25 @@ html, body {
   height: 100%;
   width: 100%;
   background-color: white;
-  color: #444;
+  color: #666;
   margin: 0;
   padding: 0;
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Montserrat', sans-serif;
   text-align: center;
 }
 
 h1 {
   margin: 0;
-  padding: 20px 0;
+  padding: 50px 0;
 }
 
 .container {
-  width: 400px;
+  width: 413px;
   margin: 0 auto;
 }
 
 .game {
-  padding-top: 50px;
+  padding-top: 10px;
 }
 
 .game div {
@@ -29,7 +29,7 @@ h1 {
   float: left;
   cursor: pointer;
   border-radius: 50px;
-  margin: 2px;
+  margin: 3px;
 }
 
 .game div:nth-child(7n + 1) {
@@ -40,18 +40,32 @@ h1 {
   background-color: #eee;
 }
 
-.black {
-  background-color: #444;
+.green {
+  background-color: #03C9A9;
 }
 
-.red {
-  background-color: #F64747;
-/*
-.game div.block.red    { background-color: #F64747; }
-.game div.block.orange { background-color: #EB974E; }
-.game div.block.yellow { background-color: #F5D76E; }
-.game div.block.blue   { background-color: #19B5FE; }
-.game div.block.green  { background-color: #03C9A9; }
-.game div.block.purple { background-color: #913D88; }
-.game div.block.pink   { background-color: #D2527F; }*/
+.blue {
+  background-color: #19B5FE;
+}
+
+@keyframes fadeOut {
+  to { background-color: #eee; }
+}
+
+.drop {
+  animation: fadeOut .10s ease-in 1 forwards;
+}
+
+.hover:after {
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-top: 20px solid #666;
+
+  content: '';
+  display: block;
+  position: relative;
+  top: -30px;
+  left: 16px;
 }

@@ -5,7 +5,7 @@ Connect4.Models.Board = function(config) {
   this.width  = config.width  || 7
   this.total  = this.height * this.width
   this.cells  = []
-  this.players = config.players || ['black', 'red']
+  this.players = config.players || ['green', 'blue']
   this.empty   = 'empty'
 
   this.currentPlayer = this.players[0]
@@ -32,15 +32,19 @@ Connect4.Models.Board = function(config) {
     var column = this.columnFor(index)
 
     if (this.columnOpen(column)) {
-      this.cells[this.highestIndexWithinColumn(column)] = this.currentPlayer
+      var bottom = this.highestIndexWithinColumn(column)
+      this.cells[bottom] = this.currentPlayer
 
       if (this.checkForWin()) {
         this.trigger('over', { winner: this.currentPlayer })
       } else if (this.checkForDraw()) {
         this.trigger('draw')
       } else {
+        this.trigger('change', {
+          column: this.toTopFrom(bottom),
+          player: this.currentPlayer
+        })
         this.currentPlayer = this.nextPlayer()
-        this.trigger('change')
       }
     }
   }
@@ -180,6 +184,15 @@ Connect4.Models.Board = function(config) {
       this.cells[index + (this.width * 2) + 2],
       this.cells[index + (this.width * 3) + 3],
     ]
+  }
+
+  this.toTopFrom = function(index) {
+    var column = []
+
+    for (var i = index; i >= 0; i -= this.width) {
+      column.push(i)
+    }
+    return column.reverse()
   }
 
   this.toJSON = function() {
