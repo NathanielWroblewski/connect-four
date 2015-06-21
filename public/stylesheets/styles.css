@@ -24,12 +24,12 @@ h1 {
 }
 
 .game div {
-  height: 53px;
-  width:  53px;
+  height: 33px;
+  width:  33px;
   float: left;
   cursor: pointer;
-  border-radius: 50px;
-  margin: 3px;
+  border-radius: 30px;
+  margin: 13px;
 }
 
 .game div:nth-child(7n + 1) {
@@ -66,6 +66,6 @@ h1 {
   content: '';
   display: block;
   position: relative;
-  top: -30px;
-  left: 16px;
+  top: -40px;
+  left: 7px;
 }
