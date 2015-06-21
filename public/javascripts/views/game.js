@@ -25,11 +25,11 @@ Connect4.Views.Game = function(config) {
     var index = parseInt(e.target.dataset.index)
 
     if (index >= 0) {
-      var column = this.model.columnFor(index)
+      var column = this.model.columnFor(index),
           node   = this.el.querySelector('[data-index="' + column + '"]')
 
       if (node) {
-        node.className = node.className.replace('hover', '')
+        node.className = node.className + ' hover'
       }
     }
   }
@@ -39,7 +39,7 @@ Connect4.Views.Game = function(config) {
     var index = parseInt(e.target.dataset.index)
 
     if (index >= 0) {
-      var column = this.model.columnFor(index)
+      var column = this.model.columnFor(index),
           node   = this.el.querySelector('[data-index="' + column + '"]')
 
       if (node) {
