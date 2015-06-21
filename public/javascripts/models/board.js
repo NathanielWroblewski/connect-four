@@ -147,7 +147,7 @@ Connect4.Models.Board = function(config) {
   }
 
   this.horizontalFour = function(index) {
-    if (this.columnFor(index) < this.width - 4) {
+    if (this.columnFor(index) < this.width - 3) {
       return [
         this.cells[index],
         this.cells[index + 1],
