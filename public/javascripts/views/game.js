@@ -28,7 +28,9 @@ Connect4.Views.Game = function(config) {
       var column = this.model.columnFor(index)
           node   = this.el.querySelector('[data-index="' + column + '"]')
 
-      node.className = node.className + ' hover'
+      if (node) {
+        node.className = node.className.replace('hover', '')
+      }
     }
   }
 
@@ -40,7 +42,9 @@ Connect4.Views.Game = function(config) {
       var column = this.model.columnFor(index)
           node   = this.el.querySelector('[data-index="' + column + '"]')
 
-      node.className = node.className.replace('hover', '')
+      if (node) {
+        node.className = node.className.replace('hover', '')
+      }
     }
   }
 
