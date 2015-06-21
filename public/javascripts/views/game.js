@@ -67,7 +67,7 @@ Connect4.Views.Game = function(config) {
   }
 
   this.drop = function(details) {
-    if (details) {
+    if (details && details.column.length > 1) {
       this.animate(details, this.render.bind(this), 0)
     } else {
       this.render()
