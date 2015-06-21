@@ -100,8 +100,11 @@ Connect4.Views.Game = function(config) {
   }
 
   this.addDropClass = function(index, player) {
-    this.el.querySelector('[data-index="' + index + '"]').className = 'drop ' +
-      player
+    var node = this.el.querySelector('[data-index="' + index + '"]')
+
+    if (node) {
+      node.className = 'drop ' + player
+    }
   }
 
   this.gameOver = function(details) {
